@@ -8,7 +8,7 @@ to the small degrees of separation from origin to destination; or displays "No S
 from origin to destination. 
 
 ## How To Use
-src - run App.js 
-origin text field - "node_name"
-destination text field - "node_name"
-Click search and watch the show!
+src - run App.js \n
+origin text field - "node_name" \n
+destination text field - "node_name" \n
+Click search and watch the show! 
