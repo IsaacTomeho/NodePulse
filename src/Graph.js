@@ -49,7 +49,9 @@ const Graph = () => {
         { group: 'nodes', data: { id: 'Mauro_Perez-Colon'} },
         { group: 'nodes', data: { id: 'Amechi_Aduba'} },
         { group: 'nodes', data: { id: 'Eric_Litvack-Winkler'} },
-
+        { group: 'nodes', data: { id: 'Max_Miller'} },
+        { group: 'nodes', data: { id: 'Brock_Milaszewskir'} },
+       
       
         // ... other nodes
 
@@ -119,7 +121,8 @@ const Graph = () => {
         { group: 'edges', data: { source: 'Kevin_Braunwart', target: 'Emily_Rosenbaum' } },
         { group: 'edges', data: { source: 'Kevin_Braunwart', target: 'Audrey_Roller' } },
         { group: 'edges', data: { source: 'Henry_Kuerbis', target: 'Amechi_Aduba' } },
-        
+        { group: 'edges', data: { source: 'Max_Miller', target: 'Isaac_Tomeho' } },
+        { group: 'edges', data: { source: 'Max_Miller', target: 'Brock_Milaszewskir' } },
         
         // ... other edges
       ],
