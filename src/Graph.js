@@ -268,10 +268,19 @@ const Graph = () => {
     };
   
     const highlightShortestPath = (pathArray) => {
-      cyInstance.elements().removeClass('visited current-visited path');
-      pathArray.forEach(id => {
-        cyInstance.$(`#${id}`).addClass('highlighted');
-      });
+      cyInstance.elements().removeClass('visited current-visited path highlighted');
+    
+      for (let i = 0; i < pathArray.length - 1; i++) {
+        const currentNode = cyInstance.$(`#${pathArray[i]}`);
+        const nextNodeId = pathArray[i + 1];
+        const nextNode = cyInstance.$(`#${nextNodeId}`);
+        const edge = currentNode.edgesWith(nextNode);
+    
+        currentNode.addClass('highlighted');
+        edge.addClass('highlighted');
+      }
+    
+      cyInstance.$(`#${pathArray[pathArray.length - 1]}`).addClass('path');
     };
   
     const stepThroughBFS = () => {
