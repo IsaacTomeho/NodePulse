@@ -49,7 +49,9 @@ const Graph = () => {
         { group: 'nodes', data: { id: 'Mauro_Perez-Colon'} },
         { group: 'nodes', data: { id: 'Amechi_Aduba'} },
         { group: 'nodes', data: { id: 'Eric_Litvack-Winkler'} },
-
+        { group: 'nodes', data: { id: 'Max_Miller'} },
+        { group: 'nodes', data: { id: 'Brock_Milaszewskir'} },
+       
       
         // ... other nodes
 
@@ -119,7 +121,8 @@ const Graph = () => {
         { group: 'edges', data: { source: 'Kevin_Braunwart', target: 'Emily_Rosenbaum' } },
         { group: 'edges', data: { source: 'Kevin_Braunwart', target: 'Audrey_Roller' } },
         { group: 'edges', data: { source: 'Henry_Kuerbis', target: 'Amechi_Aduba' } },
-        
+        { group: 'edges', data: { source: 'Max_Miller', target: 'Isaac_Tomeho' } },
+        { group: 'edges', data: { source: 'Max_Miller', target: 'Brock_Milaszewskir' } },
         
         // ... other edges
       ],
@@ -265,10 +268,19 @@ const Graph = () => {
     };
   
     const highlightShortestPath = (pathArray) => {
-      cyInstance.elements().removeClass('visited current-visited path');
-      pathArray.forEach(id => {
-        cyInstance.$(`#${id}`).addClass('highlighted');
-      });
+      cyInstance.elements().removeClass('visited current-visited path highlighted');
+    
+      for (let i = 0; i < pathArray.length - 1; i++) {
+        const currentNode = cyInstance.$(`#${pathArray[i]}`);
+        const nextNodeId = pathArray[i + 1];
+        const nextNode = cyInstance.$(`#${nextNodeId}`);
+        const edge = currentNode.edgesWith(nextNode);
+    
+        currentNode.addClass('highlighted');
+        edge.addClass('highlighted');
+      }
+    
+      cyInstance.$(`#${pathArray[pathArray.length - 1]}`).addClass('path');
     };
   
     const stepThroughBFS = () => {
